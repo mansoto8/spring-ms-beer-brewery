@@ -38,7 +38,7 @@ public class BeerController
     //todo add host name
     httpHeaders.add("Location", "/api/v1/beer/" + savedDTO.getId().toString());
 
-    return new ResponseEntity<>(savedDTO, HttpStatus.CREATED);
+    return new ResponseEntity<>(savedDTO, httpHeaders, HttpStatus.CREATED);
   }
 
   @PutMapping({"/{beerId}"})
