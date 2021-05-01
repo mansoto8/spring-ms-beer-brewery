@@ -40,7 +40,7 @@ public class CustomerController
     //todo add host name
     httpHeaders.add("Location", "/api/v1/customer/" + savedDTO.getId().toString());
 
-    return new ResponseEntity<>(savedDTO, HttpStatus.CREATED);
+    return new ResponseEntity<>(savedDTO, httpHeaders, HttpStatus.CREATED);
   }
 
   @PutMapping({"/{customerId}"})
