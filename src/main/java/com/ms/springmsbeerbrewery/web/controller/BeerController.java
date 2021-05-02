@@ -2,6 +2,8 @@ package com.ms.springmsbeerbrewery.web.controller;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import com.ms.springmsbeerbrewery.services.BeerService;
 import com.ms.springmsbeerbrewery.web.model.BeerDTO;
 import org.springframework.http.HttpHeaders;
@@ -31,7 +33,7 @@ public class BeerController
   }
 
   @PostMapping
-  public ResponseEntity handlePost(@RequestBody BeerDTO beerDTO) {
+  public ResponseEntity handlePost(@Valid @RequestBody BeerDTO beerDTO) {
     BeerDTO savedDTO = beerService.saveBeer(beerDTO);
 
     HttpHeaders httpHeaders = new HttpHeaders();

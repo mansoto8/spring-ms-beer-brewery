@@ -1,14 +1,15 @@
 package com.ms.springmsbeerbrewery.services.impl;
 
-import java.util.Locale.Builder;
 import java.util.UUID;
 
 import com.ms.springmsbeerbrewery.services.BeerService;
 import com.ms.springmsbeerbrewery.web.model.BeerDTO;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
+@NoArgsConstructor
 @Service
 public class BeerServiceImpl
     implements BeerService
