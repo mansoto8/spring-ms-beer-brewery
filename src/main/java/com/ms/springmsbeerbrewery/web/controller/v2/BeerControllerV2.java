@@ -6,13 +6,14 @@ import java.util.UUID;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
-import com.ms.springmsbeerbrewery.services.BeerService;
 import com.ms.springmsbeerbrewery.services.v2.BeerServiceV2;
 import com.ms.springmsbeerbrewery.web.model.v2.BeerDTOV2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+@Validated
 @RequestMapping("/api/v2/beer")
 @RestController
 public class BeerControllerV2
@@ -33,7 +35,7 @@ public class BeerControllerV2
   public BeerControllerV2(final BeerServiceV2 beerService) {this.beerService = beerService;}
 
   @GetMapping("/{beerId}")
-  public ResponseEntity<BeerDTOV2> getBeer(@PathVariable("beerId") UUID beerId) {
+  public ResponseEntity<BeerDTOV2> getBeer(@NotNull @PathVariable("beerId") UUID beerId) {
     return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
   }
 
@@ -60,16 +62,5 @@ public class BeerControllerV2
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void deleteBeer(@PathVariable("beerId") UUID beerId){
     beerService.deleteById(beerId);
-  }
-
-  @ExceptionHandler(ConstraintViolationException.class)
-  public ResponseEntity<List> validationErrorHandler(ConstraintViolationException e) {
-    List<String> errors = new ArrayList<>(e.getConstraintViolations().size());
-
-    e.getConstraintViolations().forEach(constraintViolation -> {
-      errors.add(constraintViolation.getPropertyPath() + " : " + constraintViolation.getMessage());
-    });
-
-    return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
   }
 }
