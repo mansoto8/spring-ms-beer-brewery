@@ -3,7 +3,6 @@ package com.ms.springmsbeerbrewery.services.impl;
 import java.util.UUID;
 
 import com.ms.springmsbeerbrewery.services.CustomerService;
-import com.ms.springmsbeerbrewery.web.model.BeerDTO;
 import com.ms.springmsbeerbrewery.web.model.CustomerDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

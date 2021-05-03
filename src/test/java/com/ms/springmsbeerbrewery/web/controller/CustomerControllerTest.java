@@ -27,7 +27,7 @@ class CustomerControllerTest
 
   @Test
   void saveNewCustomer() throws Exception {
-    CustomerDTO customerDTO = CustomerDTO.builder().name("aa").build();
+    CustomerDTO customerDTO = CustomerDTO.builder().name("aaa").build();
     String customerDTOJson = objectMapper.writeValueAsString(customerDTO);
 
     mockMvc.perform(MockMvcRequestBuilders
