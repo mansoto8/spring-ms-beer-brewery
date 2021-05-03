@@ -111,7 +111,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
       <!-- There is an issue with this plugin -->
-      <!--plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
@@ -139,7 +139,7 @@
             <compilerArg>-Amapstruct.defaultComponentModel=spring</compilerArg>
           </compilerArgs>
         </configuration>
-      </plugin-->
+      </plugin>
       <plugin>
         <groupId>org.asciidoctor</groupId>
         <artifactId>asciidoctor-maven-plugin</artifactId>

@@ -5,8 +5,7 @@ import com.ms.springmsbeerbrewery.web.model.BeerDTO;
 import org.mapstruct.Mapper;
 
 //This should be used if mapstruct were working
-//@Mapper(uses = DateMapper.class)
-@Mapper
+@Mapper(uses = DateMapper.class)
 public interface BeerMapper
 {
   BeerDTO beerToBeerDTO(Beer beer);

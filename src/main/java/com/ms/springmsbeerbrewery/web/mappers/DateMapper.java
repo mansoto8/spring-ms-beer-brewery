@@ -8,8 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DateMapper {
-  //There is an issue with mapstruct and lombok
-  /*public OffsetDateTime asOffsetDateTime(Timestamp ts){
+  public OffsetDateTime asOffsetDateTime(Timestamp ts){
     if (ts != null){
       return OffsetDateTime.of(ts.toLocalDateTime().getYear(), ts.toLocalDateTime().getMonthValue(),
           ts.toLocalDateTime().getDayOfMonth(), ts.toLocalDateTime().getHour(), ts.toLocalDateTime().getMinute(),
@@ -19,12 +18,12 @@ public class DateMapper {
     }
   }
 
-  public Timestamp asTimestamp(OffsetDateTime offsetDateTime){
-    if(offsetDateTime != null) {
+  public Timestamp asTimestamp(OffsetDateTime offsetDateTime) {
+    if (offsetDateTime != null) {
       return Timestamp.valueOf(offsetDateTime.atZoneSameInstant(ZoneOffset.UTC).toLocalDateTime());
-    } else {
+    }
+    else {
       return null;
     }
   }
-   */
 }
